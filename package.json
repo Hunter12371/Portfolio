@@ -1,0 +1,12 @@
+{
+  "name": "siddharth-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "portfolio-3d"
+  ],
+  "scripts": {
+    "build": "npm run build -w portfolio-3d"
+  }
+}

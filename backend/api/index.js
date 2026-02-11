@@ -18,7 +18,6 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../../portfolio-3d/public')));
 
 // Paths
 const dataFilePath = path.join(__dirname, '../data.md');
@@ -212,6 +211,4 @@ function parseSections(content) {
   return sections;
 }
 
-app.listen(PORT, () => {
-  console.log(`Backend server running on http://localhost:${PORT}`);
-});
+export default app;
