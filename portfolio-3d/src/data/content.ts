@@ -1,5 +1,6 @@
 // This file contains all the content for the portfolio
 // Edit this file to update your portfolio content
+// THIS IS SYNCED WITH backend/data.md
 
 export const portfolioData = {
   config: {
