@@ -212,3 +212,5 @@ function parseSections(content) {
 }
 
 export default app;
+
+//this is a test comment to check if the commit message is working
