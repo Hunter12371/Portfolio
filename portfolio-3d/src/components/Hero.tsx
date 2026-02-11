@@ -1,10 +1,11 @@
-import React, { useRef, Suspense, useState } from 'react';
+import { useRef, Suspense, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Icosahedron, MeshDistortMaterial, Sparkles } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
 import * as THREE from 'three';
 import { contentAPI } from '../services/contentAPI';
+import { useContent } from '../hooks/useContent';
 
 const AnimatedSphere = () => {
     const meshRef = useRef<THREE.Mesh>(null);
@@ -58,8 +59,9 @@ const HeroCanvas = () => {
     );
 };
 
-const Hero: React.FC = () => {
+const Hero = () => {
     const [downloadingResume, setDownloadingResume] = useState(false);
+    const { config, loading } = useContent();
 
     const handleDownloadResume = async () => {
         try {
@@ -81,6 +83,10 @@ const Hero: React.FC = () => {
         }
     };
 
+    // Default values while loading
+    const heroTitle = config?.heroTitle || "Hi, I'm Siddharth";
+    const heroSubtitle = config?.heroSubtitle || "AI Engineer | Level 99 Gamer | Tech Enthusast";
+
     return (
         <section id="home" className="min-h-screen w-full relative flex items-center justify-center bg-primary overflow-hidden pt-14 sm:pt-16">
             {/* Background 3D Scene */}
@@ -96,7 +102,12 @@ const Hero: React.FC = () => {
                     transition={{ duration: 0.8 }}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 tracking-tight pointer-events-auto"
                 >
-                    Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-500">Siddharth</span>
+                    {heroTitle.split("I'm ")[0]}
+                    {heroTitle.includes("I'm ") && (
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-500">
+                            {heroTitle.split("I'm ")[1]}
+                        </span>
+                    )}
                 </motion.h1>
 
                 <motion.p
@@ -105,7 +116,7 @@ const Hero: React.FC = () => {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="text-base sm:text-lg md:text-xl lg:text-2xl text-text-secondary mb-6 sm:mb-8 max-w-2xl mx-auto pointer-events-auto font-mono"
                 >
-                    AI Engineer | Level 99 <span className="text-purple-400 font-bold">Gamer</span> | Tech Enthusast
+                    {heroSubtitle}
                 </motion.p>
 
                 <motion.div
