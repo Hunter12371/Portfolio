@@ -63,6 +63,13 @@ const Hero = () => {
     const [downloadingResume, setDownloadingResume] = useState(false);
     const { config } = useContent();
 
+    const heroTitle = config?.heroTitle || "Hi, I'm Siddharth";
+    const heroSubtitle = config?.heroSubtitle || "AI Engineer | Level 99 Gamer | Tech Enthusast";
+    
+    // Extract name from title (assumes format "Hi, I'm Name")
+    const nameMatch = heroTitle.match(/Hi, I'm (.+)/);
+    const name = nameMatch ? nameMatch[1] : "Siddharth";
+
     const handleDownloadResume = async () => {
         try {
             setDownloadingResume(true);
@@ -83,10 +90,6 @@ const Hero = () => {
         }
     };
 
-    // Default values while loading
-    const heroTitle = config?.heroTitle || "Hi, I'm Siddharth";
-    const heroSubtitle = config?.heroSubtitle || "AI Engineer | Level 99 Gamer | Tech Enthusast";
-
     return (
         <section id="home" className="min-h-screen w-full relative flex items-center justify-center bg-primary overflow-hidden pt-14 sm:pt-16">
             {/* Background 3D Scene */}
@@ -102,12 +105,7 @@ const Hero = () => {
                     transition={{ duration: 0.8 }}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 tracking-tight pointer-events-auto"
                 >
-                    {heroTitle.split("I'm ")[0]}
-                    {heroTitle.includes("I'm ") && (
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-500">
-                            {heroTitle.split("I'm ")[1]}
-                        </span>
-                    )}
+                    Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-500">{name}</span>
                 </motion.h1>
 
                 <motion.p
