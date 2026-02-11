@@ -7,6 +7,7 @@
     "portfolio-3d"
   ],
   "scripts": {
-    "build": "npm run build -w portfolio-3d"
+    "build": "npm run build -w portfolio-3d",
+    "vercel-build": "npm run build -w portfolio-3d"
   }
 }

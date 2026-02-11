@@ -1,11 +1,12 @@
 {
   "version": 2,
+  "buildCommand": "npm run build",
   "builds": [
     {
       "src": "portfolio-3d/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist"
+        "distDir": "portfolio-3d/dist"
       }
     },
     {
@@ -19,11 +20,15 @@
       "dest": "backend/api/index.js"
     },
     {
+      "src": "/resume/(.*)",
+      "dest": "backend/api/index.js"
+    },
+    {
       "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/portfolio-3d/dist/index.html"
     }
   ]
 }

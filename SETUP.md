@@ -121,32 +121,40 @@ Edit `tailwind.config.js` to change the color scheme
 
 ## 6. Deployment
 
-### Deploy Backend
+### Deploy to Vercel (Recommended - All-in-One Solution)
 
-Choose a platform:
-- **Heroku** (free tier removed, but affordable)
-- **Railway** (recommended, simple setup)
-- **Render** (free tier available)
-- **Your own VPS**
+Your project is fully configured for Vercel deployment with both frontend and backend!
 
-Steps:
+**Quick Steps:**
 1. Push code to GitHub
-2. Connect repository to hosting service
-3. Add environment variables (EMAIL_USER, EMAIL_PASSWORD)
-4. Deploy!
+2. Go to [vercel.com/new](https://vercel.com/new) and import your repository
+3. Add environment variables in Vercel Dashboard:
+   - `EMAIL_USER`: your-email@gmail.com
+   - `EMAIL_PASSWORD`: your-app-specific-password
+4. Click Deploy!
 
-### Deploy Frontend
+**Detailed Guide:** See [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md) for complete instructions.
 
-Choose a platform:
-- **Vercel** (recommended for Vite)
-- **Netlify**
-- **GitHub Pages**
-- **Your own server**
+**Deployment Checklist:** Use [DEPLOYMENT_CHECKLIST.md](./DEPLOYMENT_CHECKLIST.md) to ensure everything is ready.
 
-Before deployment, update the API URL in `src/services/contentAPI.ts`:
+### Alternative: Separate Deployment
+
+If you prefer to deploy frontend and backend separately:
+
+**Backend Options:**
+- Railway (recommended, simple setup)
+- Render (free tier available)
+- Your own VPS
+
+**Frontend Options:**
+- Vercel (recommended for Vite)
+- Netlify
+- GitHub Pages
+
+Before separate deployment, update the API URL in `portfolio-3d/src/services/contentAPI.ts`:
 
 ```typescript
-const API_URL = process.env.NODE_ENV === 'production' 
+const API_URL = import.meta.env.PROD 
   ? 'https://your-backend-url.com'
   : 'http://localhost:5000';
 ```

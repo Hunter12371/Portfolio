@@ -1,0 +1,7 @@
+node_modules
+.git
+.env
+*.log
+.DS_Store
+backend/node_modules
+portfolio-3d/node_modules

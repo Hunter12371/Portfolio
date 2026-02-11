@@ -211,6 +211,12 @@ function parseSections(content) {
   return sections;
 }
 
+// For Vercel serverless function
 export default app;
 
-//this is a test comment to check if the commit message is working
+// Start server only in development
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Backend running on http://localhost:${PORT}`);
+  });
+}
