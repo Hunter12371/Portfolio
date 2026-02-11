@@ -50,7 +50,7 @@ Python, C++, C, SQL, TensorFlow, PyTorch, OpenCV, Scikit-learn, Data Science, ML
 
 ## Automated MLOps Pipeline
 **Tech:** Python, Docker, GitHub Actions
-**Description:** Designed CI/CD pipeline improving deployment speed by 35%. Automated model training, testing, and deployment workflows.
+**Description:** Designed CI/CD pipeline improving deployment speed by 40%. Automated model training, testing, and deployment workflows.
 **GitHub:** #
 **Live:** #
 
