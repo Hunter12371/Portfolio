@@ -61,7 +61,7 @@ const HeroCanvas = () => {
 
 const Hero = () => {
     const [downloadingResume, setDownloadingResume] = useState(false);
-    const { config, loading } = useContent();
+    const { config } = useContent();
 
     const heroTitle = config?.heroTitle || "Hi, I'm Siddharth";
     const heroSubtitle = config?.heroSubtitle || "AI Engineer | Level 99 Gamer | Tech Enthusast";
