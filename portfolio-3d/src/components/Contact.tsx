@@ -1,9 +1,13 @@
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone } from 'lucide-react';
-import { portfolioData } from '../data/content';
+import { useContent } from '../hooks/useContent';
 
 const Contact = () => {
-    const { contactEmail, phone, location } = portfolioData.config;
+    const { config } = useContent();
+
+    const contactEmail = config?.contactEmail || 'work.srivastav@gmail.com';
+    const phone = config?.phone || '+91-9599692344';
+    const location = config?.location || 'Bangalore, Karnataka';
 
     return (
         <section id="contact" className="py-16 sm:py-20 md:py-24 bg-secondary/30 backdrop-blur-lg text-text-primary relative">

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
 import * as THREE from 'three';
 import { contentAPI } from '../services/contentAPI';
-import { portfolioData } from '../data/content';
+import { useContent } from '../hooks/useContent';
 
 const AnimatedSphere = () => {
     const meshRef = useRef<THREE.Mesh>(null);
@@ -61,9 +61,10 @@ const HeroCanvas = () => {
 
 const Hero = () => {
     const [downloadingResume, setDownloadingResume] = useState(false);
+    const { config } = useContent();
 
-    const heroTitle = portfolioData.config.heroTitle;
-    const heroSubtitle = portfolioData.config.heroSubtitle;
+    const heroTitle = config?.heroTitle || "Hi, I'm Siddharth";
+    const heroSubtitle = config?.heroSubtitle || "AI Engineer | Level 99 Gamer | Tech Enthusast";
     
     // Extract name from title
     const nameMatch = heroTitle.match(/Hi, I'm (.+)/);

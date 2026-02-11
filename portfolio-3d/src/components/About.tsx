@@ -1,8 +1,16 @@
 import { motion } from 'framer-motion';
-import { portfolioData } from '../data/content';
+import { useContent } from '../hooks/useContent';
 
 const About = () => {
-    const { paragraphs, skills } = portfolioData.about;
+    const { sections } = useContent();
+
+    const aboutContent = sections?.About || '';
+    const paragraphs = aboutContent.split('\n\n').filter(p => !p.startsWith('##'));
+    
+    // Extract skills
+    const skillsMatch = aboutContent.match(/## Skills\n\n(.*?)(?=\n|$)/);
+    const skillsText = skillsMatch ? skillsMatch[1].trim() : '';
+    const skills = skillsText ? skillsText.split(',').map(s => s.trim()) : [];
 
     return (
         <section id="about" className="py-16 sm:py-20 md:py-24 bg-primary/30 backdrop-blur-lg text-text-primary relative overflow-hidden">

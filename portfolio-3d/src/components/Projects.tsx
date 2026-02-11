@@ -1,9 +1,13 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
-import { portfolioData } from '../data/content';
+import { useContent } from '../hooks/useContent';
+import { parseProjects } from '../utils/parseContent';
 
 const Projects = () => {
-    const projects = portfolioData.projects;
+    const { sections } = useContent();
+
+    const projectsContent = sections?.Projects || '';
+    const projects = projectsContent ? parseProjects(projectsContent) : [];
 
     return (
         <section id="projects" className="py-16 sm:py-20 md:py-24 bg-primary/30 backdrop-blur-lg text-text-primary relative">

@@ -21,7 +21,7 @@ Python, C++, C, SQL, TensorFlow, PyTorch, OpenCV, Scikit-learn, Data Science, ML
 ## CHRIST University, Bangalore
 **Degree:** BTech in Artificial Intelligence and Machine Learning
 **Period:** June 2023 - May 2027
-**Proficient In** #ArtificialIntelligence #MachineLearning #ComputerVision
+**Proficient In:** #ArtificialIntelligence #MachineLearning #ComputerVision
 
 # Experience
 

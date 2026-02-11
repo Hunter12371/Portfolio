@@ -4,8 +4,7 @@ export interface EducationItem {
   institution: string;
   degree: string;
   period: string;
-  cgpa: string;
-  tags: string[];
+  proficientIn: string;
 }
 
 export interface ExperienceItem {
@@ -38,19 +37,15 @@ export const parseEducation = (content: string): EducationItem[] => {
         institution: line.replace('## ', '').trim(),
         degree: '',
         period: '',
-        cgpa: '',
-        tags: []
+        proficientIn: ''
       };
     } else if (currentItem) {
       if (line.startsWith('**Degree:**')) {
         currentItem.degree = line.replace('**Degree:**', '').trim();
       } else if (line.startsWith('**Period:**')) {
         currentItem.period = line.replace('**Period:**', '').trim();
-      } else if (line.startsWith('**CGPA:**')) {
-        currentItem.cgpa = line.replace('**CGPA:**', '').trim();
-      } else if (line.startsWith('**Tags:**')) {
-        const tagsStr = line.replace('**Tags:**', '').trim();
-        currentItem.tags = tagsStr.split(' ').filter(t => t.startsWith('#'));
+      } else if (line.startsWith('**Proficient In:**')) {
+        currentItem.proficientIn = line.replace('**Proficient In:**', '').trim();
       }
     }
   }

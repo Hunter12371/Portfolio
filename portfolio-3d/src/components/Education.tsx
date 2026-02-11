@@ -1,9 +1,13 @@
 import { motion } from 'framer-motion';
-import { GraduationCap, Award } from 'lucide-react';
-import { portfolioData } from '../data/content';
+import { GraduationCap } from 'lucide-react';
+import { useContent } from '../hooks/useContent';
+import { parseEducation } from '../utils/parseContent';
 
 const Education = () => {
-    const educationItems = portfolioData.education;
+    const { sections } = useContent();
+
+    const educationContent = sections?.Education || '';
+    const educationItems = educationContent ? parseEducation(educationContent) : [];
 
     return (
         <section id="education" className="py-16 sm:py-20 md:py-24 bg-primary/30 backdrop-blur-lg text-text-primary relative">
@@ -42,21 +46,9 @@ const Education = () => {
                                 </span>
                             </div>
 
-                            {edu.cgpa && (
-                                <div className="flex items-center gap-4 mt-6 p-4 bg-primary/50 rounded-xl border border-white/5">
-                                    <Award className="text-yellow-400 flex-shrink-0" size={20} />
-                                    <div>
-                                        <span className="text-gray-400 text-xs sm:text-sm">CGPA</span>
-                                        <p className="text-lg sm:text-xl font-bold text-white">{edu.cgpa}</p>
-                                    </div>
-                                </div>
-                            )}
-
-                            {edu.tags && edu.tags.length > 0 && (
-                                <div className="mt-6 flex flex-wrap gap-2">
-                                    {edu.tags.map((tag, i) => (
-                                        <span key={i} className="text-xs font-mono text-gray-500">{tag}</span>
-                                    ))}
+                            {edu.proficientIn && (
+                                <div className="mt-6 p-4 bg-primary/50 rounded-xl border border-white/5">
+                                    <p className="text-gray-300 text-sm sm:text-base">{edu.proficientIn}</p>
                                 </div>
                             )}
                         </motion.div>

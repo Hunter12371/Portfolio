@@ -1,9 +1,13 @@
 import { motion } from 'framer-motion';
 import { Briefcase } from 'lucide-react';
-import { portfolioData } from '../data/content';
+import { useContent } from '../hooks/useContent';
+import { parseExperience } from '../utils/parseContent';
 
 const Experience = () => {
-    const experiences = portfolioData.experience;
+    const { sections } = useContent();
+
+    const experienceContent = sections?.Experience || '';
+    const experiences = experienceContent ? parseExperience(experienceContent) : [];
 
     return (
         <section id="experience" className="py-16 sm:py-20 md:py-24 bg-secondary/30 backdrop-blur-lg text-text-primary relative">
