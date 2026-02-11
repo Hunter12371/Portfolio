@@ -32,6 +32,16 @@ export const contentAPI = {
     }
   },
 
+  sendEmail: async (data: { name: string; email: string; message: string }) => {
+    try {
+      const response = await api.post('/api/send-email', data);
+      return response.data;
+    } catch (error) {
+      console.error('Error sending email:', error);
+      throw error;
+    }
+  },
+
   downloadResume: async () => {
     try {
       const response = await api.get('/api/download-resume', {
