@@ -14,13 +14,12 @@ I bring the same strategic depth and reaction time from the arena to my engineer
 
 ## Skills
 
-Python, C++, C, SQL, TensorFlow, PyTorch, OpenCV, Scikit-learn, Data Science, MLOps, Docker, Flutter, Figma, VSCode
+Python, C++, C, SQL, TensorFlow, PyTorch, OpenCV, Scikit-learn, Data Science, MLOps, Docker, Flutter, VSCode
 
 # Education
 
-## Bachelor of Technology in Computer Science
-**Graphic Era Hill University** | Expected 2025
-- CGPA: 7.8/10
+## Bachelor of Technology in Artificial Intelligence and Machine Learning
+**Christ University Banglore** | Expected 2027
 - Relevant Coursework: Machine Learning, Data Science, Computer Vision, Deep Learning
 
 # Experience
