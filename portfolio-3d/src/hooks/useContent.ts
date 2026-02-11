@@ -5,11 +5,17 @@ interface Config {
   contactEmail?: string;
   heroTitle?: string;
   heroSubtitle?: string;
+  phone?: string;
+  location?: string;
+}
+
+interface Sections {
+  [key: string]: string;
 }
 
 export const useContent = () => {
-  const [content, setContent] = useState<string | null>(null);
   const [config, setConfig] = useState<Config | null>(null);
+  const [sections, setSections] = useState<Sections | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -18,8 +24,8 @@ export const useContent = () => {
       try {
         setLoading(true);
         const data = await contentAPI.getContent();
-        setContent(data.content);
         setConfig(data.config);
+        setSections(data.sections);
         setError(null);
       } catch (err: any) {
         console.error('Error fetching content:', err);
@@ -30,30 +36,12 @@ export const useContent = () => {
     };
 
     fetchContent();
+    
+    // Refresh content every 5 seconds for live updates
+    const interval = setInterval(fetchContent, 5000);
+    
+    return () => clearInterval(interval);
   }, []);
 
-  return { content, config, loading, error };
-};
-
-export const useContactEmail = () => {
-  const [email, setEmail] = useState('work.srivastav@gmail.com');
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchEmail = async () => {
-      try {
-        const data = await contentAPI.getContent();
-        setEmail(data.config?.contactEmail || 'work.srivastav@gmail.com');
-      } catch (err) {
-        console.error('Error fetching contact email:', err);
-        setEmail('work.srivastav@gmail.com');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchEmail();
-  }, []);
-
-  return { email, loading };
+  return { config, sections, loading, error };
 };

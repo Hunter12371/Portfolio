@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
 import * as THREE from 'three';
 import { contentAPI } from '../services/contentAPI';
+import { useContent } from '../hooks/useContent';
 
 const AnimatedSphere = () => {
     const meshRef = useRef<THREE.Mesh>(null);
@@ -60,6 +61,14 @@ const HeroCanvas = () => {
 
 const Hero = () => {
     const [downloadingResume, setDownloadingResume] = useState(false);
+    const { config, loading } = useContent();
+
+    const heroTitle = config?.heroTitle || "Hi, I'm Siddharth";
+    const heroSubtitle = config?.heroSubtitle || "AI Engineer | Level 99 Gamer | Tech Enthusast";
+    
+    // Extract name from title
+    const nameMatch = heroTitle.match(/Hi, I'm (.+)/);
+    const name = nameMatch ? nameMatch[1] : "Siddharth";
 
     const handleDownloadResume = async () => {
         try {
@@ -96,7 +105,7 @@ const Hero = () => {
                     transition={{ duration: 0.8 }}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 tracking-tight pointer-events-auto"
                 >
-                    Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-500">Siddharth</span>
+                    Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-500">{name}</span>
                 </motion.h1>
 
                 <motion.p
@@ -105,7 +114,7 @@ const Hero = () => {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="text-base sm:text-lg md:text-xl lg:text-2xl text-text-secondary mb-6 sm:mb-8 max-w-2xl mx-auto pointer-events-auto font-mono"
                 >
-                    AI Engineer | Level 99 <span className="text-purple-400 font-bold">Gamer</span> | Tech Enthusast
+                    {heroSubtitle}
                 </motion.p>
 
                 <motion.div

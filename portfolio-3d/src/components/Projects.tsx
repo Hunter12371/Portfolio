@@ -1,29 +1,24 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
+import { useContent } from '../hooks/useContent';
+import { parseProjects } from '../utils/parseContent';
 
-const projects = [
-    {
-        title: "Ambulance Traffic Predictor",
-        tech: ["Python", "Pandas", "Scikit-learn"],
-        description: "Built traffic prediction system achieving 94% accuracy and reducing response time by 22%.Analyzed traffic patterns to optimize ambulance routing.",
-        links: { github: "#", live: "#" }
-    },
-    {
-        title: "Automated MLOps Pipeline",
-        tech: ["Python", "Docker", "GitHub Actions"],
-        description: "Designed CI/CD pipeline improving deployment speed by 35%. Automated model training, testing, and deployment workflows.",
-        links: { github: "#", live: "#" }
-    },
-    {
-        title: "AI Personal Assistant with Object Detection",
-        tech: ["Python", "YOLO", "OpenCV"],
-        description: "Developed real-time object detection assistant with 95% accuracy and reduced latency by 60ms. Integrated voice commands for hands-free operation.",
-        links: { github: "#", live: "#" }
+const Projects = () => {
+    const { sections, loading } = useContent();
+
+    if (loading) {
+        return (
+            <section id="projects" className="py-16 sm:py-20 md:py-24 bg-primary/30 backdrop-blur-lg text-text-primary">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <p className="text-gray-400">Loading...</p>
+                </div>
+            </section>
+        );
     }
-];
 
-const Projects: React.FC = () => {
+    const projectsContent = sections?.Projects || '';
+    const projects = parseProjects(projectsContent);
+
     return (
         <section id="projects" className="py-16 sm:py-20 md:py-24 bg-primary/30 backdrop-blur-lg text-text-primary relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,10 +49,10 @@ const Projects: React.FC = () => {
                                         {project.title}
                                     </h3>
                                     <div className="flex gap-3">
-                                        <a href={project.links.github} className="text-gray-400 hover:text-white transition-colors">
+                                        <a href={project.github} className="text-gray-400 hover:text-white transition-colors">
                                             <Github size={20} />
                                         </a>
-                                        <a href={project.links.live} className="text-gray-400 hover:text-white transition-colors">
+                                        <a href={project.live} className="text-gray-400 hover:text-white transition-colors">
                                             <ExternalLink size={20} />
                                         </a>
                                     </div>

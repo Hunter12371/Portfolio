@@ -10,20 +10,6 @@ const api = axios.create({
   timeout: 10000,
 });
 
-// Types
-interface Config {
-  contactEmail?: string;
-  heroTitle?: string;
-  heroSubtitle?: string;
-}
-
-interface ContactFormData {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
-
 // Content API
 export const contentAPI = {
   getContent: async () => {
@@ -42,36 +28,6 @@ export const contentAPI = {
       return response.data;
     } catch (error) {
       console.error(`Error fetching ${section} section:`, error);
-      throw error;
-    }
-  },
-
-  updateConfig: async (config: Config) => {
-    try {
-      const response = await api.put('/api/config', config);
-      return response.data;
-    } catch (error) {
-      console.error('Error updating config:', error);
-      throw error;
-    }
-  },
-
-  updateSection: async (section: string, newContent: string) => {
-    try {
-      const response = await api.put(`/api/content/${section}`, { newContent });
-      return response.data;
-    } catch (error) {
-      console.error(`Error updating ${section} section:`, error);
-      throw error;
-    }
-  },
-
-  sendContactEmail: async (formData: ContactFormData) => {
-    try {
-      const response = await api.post('/api/send-email', formData);
-      return response.data;
-    } catch (error) {
-      console.error('Error sending email:', error);
       throw error;
     }
   },
