@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "node scripts/sync-content.cjs && tsc -b && vite build",
+    "sync-content": "node scripts/sync-content.cjs",
     "vercel-build": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview"
