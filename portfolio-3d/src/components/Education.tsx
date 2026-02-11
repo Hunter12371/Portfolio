@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { GraduationCap, Award } from 'lucide-react';
+import { GraduationCap } from 'lucide-react';
 import { useContent } from '../hooks/useContent';
 import { useEffect, useState } from 'react';
 
