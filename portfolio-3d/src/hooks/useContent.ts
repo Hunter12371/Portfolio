@@ -1,11 +1,17 @@
 import { useState, useEffect } from 'react';
 import { contentAPI } from '../services/contentAPI';
 
+interface Config {
+  contactEmail?: string;
+  heroTitle?: string;
+  heroSubtitle?: string;
+}
+
 export const useContent = () => {
-  const [content, setContent] = useState(null);
-  const [config, setConfig] = useState(null);
+  const [content, setContent] = useState<string | null>(null);
+  const [config, setConfig] = useState<Config | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchContent = async () => {
@@ -15,7 +21,7 @@ export const useContent = () => {
         setContent(data.content);
         setConfig(data.config);
         setError(null);
-      } catch (err) {
+      } catch (err: any) {
         console.error('Error fetching content:', err);
         setError(err.message || 'Failed to fetch content');
       } finally {
