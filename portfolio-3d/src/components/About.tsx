@@ -1,23 +1,8 @@
 import { motion } from 'framer-motion';
-import { useContent } from '../hooks/useContent';
+import { portfolioData } from '../data/content';
 
 const About = () => {
-    const { sections } = useContent();
-
-    // Fallback data
-    const defaultAbout = `I am an AI & ML Engineering Student and IEEE AESS Vice Chair with experience building Machine Learning and computer vision systems. My work focuses on developing scalable AI solutions, from real-time object detection assistants to traffic prediction models with high accuracy.
-
-I have a strong foundation in Python and MLOps. When I'm not deploying models, I'm dominating in competitive gaming lobbies. I bring the same strategic depth and reaction time from the arena to my engineering challenges.`;
-
-    const defaultSkills = ["Python", "C++", "C", "SQL", "TensorFlow", "PyTorch", "OpenCV", "Scikit-learn", "Data Science", "MLOps", "Docker", "Flutter", "Figma", "VSCode"];
-
-    const aboutContent = sections?.About || defaultAbout;
-    const paragraphs = aboutContent.split('\n\n').filter(p => !p.startsWith('##'));
-    
-    // Extract skills
-    const skillsMatch = aboutContent.match(/## Skills\n\n(.*?)(?=\n|$)/);
-    const skillsText = skillsMatch ? skillsMatch[1].trim() : '';
-    const skills = skillsText ? skillsText.split(',').map(s => s.trim()) : defaultSkills;
+    const { paragraphs, skills } = portfolioData.about;
 
     return (
         <section id="about" className="py-16 sm:py-20 md:py-24 bg-primary/30 backdrop-blur-lg text-text-primary relative overflow-hidden">

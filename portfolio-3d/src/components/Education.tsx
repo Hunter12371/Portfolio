@@ -1,22 +1,9 @@
 import { motion } from 'framer-motion';
 import { GraduationCap, Award } from 'lucide-react';
-import { useContent } from '../hooks/useContent';
-import { parseEducation } from '../utils/parseContent';
+import { portfolioData } from '../data/content';
 
 const Education = () => {
-    const { sections } = useContent();
-
-    // Fallback data
-    const defaultEducation = [{
-        institution: "CHRIST University, Bangalore",
-        degree: "BTech in Artificial Intelligence and Machine Learning",
-        period: "June 2023 - May 2027",
-        cgpa: "3.34 / 4",
-        tags: ["#AI", "#MachineLearning", "#ComputerVision"]
-    }];
-
-    const educationContent = sections?.Education || '';
-    const educationItems = educationContent ? parseEducation(educationContent) : defaultEducation;
+    const educationItems = portfolioData.education;
 
     return (
         <section id="education" className="py-16 sm:py-20 md:py-24 bg-primary/30 backdrop-blur-lg text-text-primary relative">

@@ -1,44 +1,9 @@
 import { motion } from 'framer-motion';
 import { Briefcase } from 'lucide-react';
-import { useContent } from '../hooks/useContent';
-import { parseExperience } from '../utils/parseContent';
+import { portfolioData } from '../data/content';
 
 const Experience = () => {
-    const { sections } = useContent();
-
-    // Fallback data
-    const defaultExperience = [
-        {
-            company: "Intel Unnati",
-            role: "AI/ML Trainee",
-            period: "May 2025 – Jul 2025",
-            description: [
-                "Built ML models for network traffic analysis; improved prediction accuracy by 15%.",
-                "Reduced simulated network latency by 20% through optimization techniques."
-            ]
-        },
-        {
-            company: "Faramond Technologies",
-            role: "AI/ML Intern",
-            period: "Apr 2025 – Jun 2025",
-            description: [
-                "Improved model interpretability by 25% and reduced preprocessing time by 30%.",
-                "Deployed ML models for real-time prediction pipelines."
-            ]
-        },
-        {
-            company: "Acmegrade",
-            role: "Machine Learning Intern",
-            period: "Jun 2025 – Aug 2025",
-            description: [
-                "Built ML pipelines using Scikit-learn; improved accuracy by 18%.",
-                "Automated preprocessing and evaluation, reducing workflow time by 40%."
-            ]
-        }
-    ];
-
-    const experienceContent = sections?.Experience || '';
-    const experiences = experienceContent ? parseExperience(experienceContent) : defaultExperience;
+    const experiences = portfolioData.experience;
 
     return (
         <section id="experience" className="py-16 sm:py-20 md:py-24 bg-secondary/30 backdrop-blur-lg text-text-primary relative">
