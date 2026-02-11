@@ -21,8 +21,7 @@ Python, C++, C, SQL, TensorFlow, PyTorch, OpenCV, Scikit-learn, Data Science, ML
 ## CHRIST University, Bangalore
 **Degree:** BTech in Artificial Intelligence and Machine Learning
 **Period:** June 2023 - May 2027
-**CGPA:** 3.34 / 4
-**Tags:** #AI #MachineLearning #ComputerVision
+**Proficient In** #ArtificialIntelligence #MachineLearning #ComputerVision
 
 # Experience
 
@@ -37,7 +36,7 @@ Python, C++, C, SQL, TensorFlow, PyTorch, OpenCV, Scikit-learn, Data Science, ML
 - Deployed ML models for real-time prediction pipelines.
 
 ## Acmegrade | Machine Learning Intern
-**Period:** Jun 2025 – Aug 2025
+**Period:** Oct 2023 – Dec 2023
 - Built ML pipelines using Scikit-learn; improved accuracy by 18%.
 - Automated preprocessing and evaluation, reducing workflow time by 40%.
 
