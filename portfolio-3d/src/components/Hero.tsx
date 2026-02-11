@@ -61,7 +61,7 @@ const HeroCanvas = () => {
 
 const Hero = () => {
     const [downloadingResume, setDownloadingResume] = useState(false);
-    const { config, loading } = useContent();
+    const { config } = useContent();
 
     const handleDownloadResume = async () => {
         try {
