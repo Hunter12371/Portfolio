@@ -35,15 +35,7 @@ Python, C++, C, SQL, TensorFlow, PyTorch, OpenCV, Scikit-learn, Data Science, ML
 - Improved model interpretability by 25% and reduced preprocessing time by 30%.
 - Deployed ML models for real-time prediction pipelines.
 
-## Technologies | AI/ML Intern
-**Period:** Apr 2025 – Jun 2025
-- Improved model interpretability by 25% and reduced preprocessing time by 30%.
-- Deployed ML models for real-time prediction pipelines.
-- 
-## Acmegrade | Machine Learning Intern
-**Period:** Oct 2023 – Dec 2023
-- Built ML pipelines using Scikit-learn; improved accuracy by 18%.
-- Automated preprocessing and evaluation, reducing workflow time by 40%.
+
 
 ## IEEE AESS | Student Vice Chair
 **Period:** Jan 2026 – Present
