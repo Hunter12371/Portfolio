@@ -1,6 +1,6 @@
 ---
 contactEmail: "work.srivastav@gmail.com"
-heroTitle: "Hi, I'm Siddharth"
+heroTitle: "Hi, I'm Siddharth Srivastav"
 heroSubtitle: "AI Engineer | Level 99 Gamer | Tech Enthusast"
 ---
 
