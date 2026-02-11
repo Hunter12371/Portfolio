@@ -1,28 +1,11 @@
 import { motion } from 'framer-motion';
-import { useContent } from '../hooks/useContent';
+
+const skills = [
+    "Python", "C++", "C", "SQL", "TensorFlow", "PyTorch", "OpenCV", "Scikit-learn",
+    "Data Science", "MLOps", "Docker", "Flutter", "Figma", "VSCode"
+];
 
 const About = () => {
-    const { content, loading } = useContent();
-
-    if (loading) {
-        return (
-            <section id="about" className="py-16 sm:py-20 md:py-24 bg-primary/30 backdrop-blur-lg text-text-primary">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <p className="text-gray-400">Loading...</p>
-                </div>
-            </section>
-        );
-    }
-
-    // Parse About section from content
-    const aboutMatch = content?.match(/# About\n\n([\s\S]*?)(?=\n# |$)/);
-    const aboutText = aboutMatch ? aboutMatch[1].trim() : '';
-    
-    // Parse Skills section
-    const skillsMatch = content?.match(/## Skills\n\n(.*?)(?=\n|$)/);
-    const skillsText = skillsMatch ? skillsMatch[1].trim() : '';
-    const skills = skillsText ? skillsText.split(',').map(s => s.trim()) : [];
-
     return (
         <section id="about" className="py-16 sm:py-20 md:py-24 bg-primary/30 backdrop-blur-lg text-text-primary relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-primary/0 via-primary/50 to-primary/0 pointer-events-none" />
@@ -45,11 +28,14 @@ const About = () => {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         viewport={{ once: true }}
                     >
-                        {aboutText.split('\n\n').map((paragraph, index) => (
-                            <p key={index} className="text-base sm:text-lg text-gray-300 mb-4 sm:mb-6 leading-relaxed">
-                                {paragraph}
-                            </p>
-                        ))}
+                        <p className="text-base sm:text-lg text-gray-300 mb-4 sm:mb-6 leading-relaxed">
+                            I am an AI & ML Engineering Student and IEEE AESS Vice Chair with experience building Machine Learning and computer vision systems.
+                            My work focuses on developing scalable AI solutions, from real-time object detection assistants to traffic prediction models with high accuracy.
+                        </p>
+                        <p className="text-base sm:text-lg text-gray-300 mb-6 leading-relaxed">
+                            I have a strong foundation in Python and MLOps. When I'm not deploying models, I'm dominating in competitive gaming lobbies.
+                            I bring the same <span className="text-accent font-bold">strategic depth</span> and <span className="text-purple-400 font-bold">reaction time</span> from the arena to my engineering challenges.
+                        </p>
                     </motion.div>
 
                     <motion.div
