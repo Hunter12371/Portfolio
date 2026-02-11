@@ -2,12 +2,15 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
 import { useContent } from '../hooks/useContent';
 import { parseProjects } from '../utils/parseContent';
+import { portfolioData } from '../data/content';
 
 const Projects = () => {
     const { sections } = useContent();
 
-    const projectsContent = sections?.Projects || '';
-    const projects = projectsContent ? parseProjects(projectsContent) : [];
+    // Use API data if available, otherwise use fallback
+    const projects = sections?.Projects 
+        ? parseProjects(sections.Projects) 
+        : portfolioData.projects;
 
     return (
         <section id="projects" className="py-16 sm:py-20 md:py-24 bg-primary/30 backdrop-blur-lg text-text-primary relative">

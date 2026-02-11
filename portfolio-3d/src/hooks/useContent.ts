@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { contentAPI } from '../services/contentAPI';
+import { portfolioData } from '../data/content';
 
 interface Config {
   contactEmail?: string;
@@ -14,24 +15,23 @@ interface Sections {
 }
 
 export const useContent = () => {
-  const [config, setConfig] = useState<Config | null>(null);
+  const [config, setConfig] = useState<Config>(portfolioData.config);
   const [sections, setSections] = useState<Sections | null>(null);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        setLoading(true);
         const data = await contentAPI.getContent();
-        setConfig(data.config);
-        setSections(data.sections);
-        setError(null);
+        if (data && data.config) {
+          setConfig(data.config);
+          setSections(data.sections);
+          setError(null);
+        }
       } catch (err: any) {
-        console.error('Error fetching content:', err);
-        setError(err.message || 'Failed to fetch content');
-      } finally {
-        setLoading(false);
+        console.error('Error fetching content from API, using fallback data:', err);
+        setError(err.message || 'Using fallback data');
+        // Keep using fallback data from portfolioData
       }
     };
 
@@ -43,5 +43,5 @@ export const useContent = () => {
     return () => clearInterval(interval);
   }, []);
 
-  return { config, sections, loading, error };
+  return { config, sections, error };
 };

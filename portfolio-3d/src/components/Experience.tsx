@@ -2,12 +2,15 @@ import { motion } from 'framer-motion';
 import { Briefcase } from 'lucide-react';
 import { useContent } from '../hooks/useContent';
 import { parseExperience } from '../utils/parseContent';
+import { portfolioData } from '../data/content';
 
 const Experience = () => {
     const { sections } = useContent();
 
-    const experienceContent = sections?.Experience || '';
-    const experiences = experienceContent ? parseExperience(experienceContent) : [];
+    // Use API data if available, otherwise use fallback
+    const experiences = sections?.Experience 
+        ? parseExperience(sections.Experience) 
+        : portfolioData.experience;
 
     return (
         <section id="experience" className="py-16 sm:py-20 md:py-24 bg-secondary/30 backdrop-blur-lg text-text-primary relative">

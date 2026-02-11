@@ -1,16 +1,28 @@
 import { motion } from 'framer-motion';
 import { useContent } from '../hooks/useContent';
+import { portfolioData } from '../data/content';
 
 const About = () => {
     const { sections } = useContent();
 
-    const aboutContent = sections?.About || '';
-    const paragraphs = aboutContent.split('\n\n').filter(p => !p.startsWith('##'));
+    // Use API data if available, otherwise use fallback
+    let paragraphs: string[];
+    let skills: string[];
     
-    // Extract skills
-    const skillsMatch = aboutContent.match(/## Skills\n\n(.*?)(?=\n|$)/);
-    const skillsText = skillsMatch ? skillsMatch[1].trim() : '';
-    const skills = skillsText ? skillsText.split(',').map(s => s.trim()) : [];
+    if (sections?.About) {
+        // Parse from API data
+        const aboutContent = sections.About;
+        paragraphs = aboutContent.split('\n\n').filter(p => !p.startsWith('##'));
+        
+        // Extract skills
+        const skillsMatch = aboutContent.match(/## Skills\n\n(.*?)(?=\n|$)/);
+        const skillsText = skillsMatch ? skillsMatch[1].trim() : '';
+        skills = skillsText ? skillsText.split(',').map(s => s.trim()) : portfolioData.about.skills;
+    } else {
+        // Use fallback data
+        paragraphs = portfolioData.about.paragraphs;
+        skills = portfolioData.about.skills;
+    }
 
     return (
         <section id="about" className="py-16 sm:py-20 md:py-24 bg-primary/30 backdrop-blur-lg text-text-primary relative overflow-hidden">

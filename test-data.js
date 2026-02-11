@@ -1,7 +1,5 @@
-// This file contains all the content for the portfolio
-// Edit this file to update your portfolio content
-
-export const portfolioData = {
+// Quick test to verify data structure
+const portfolioData = {
   config: {
     contactEmail: "work.srivastav@gmail.com",
     heroTitle: "Hi, I'm Siddharth",
@@ -92,3 +90,11 @@ export const portfolioData = {
     }
   ]
 };
+
+console.log("Config:", portfolioData.config);
+console.log("About paragraphs:", portfolioData.about.paragraphs.length);
+console.log("Skills:", portfolioData.about.skills.length);
+console.log("Education:", portfolioData.education.length);
+console.log("Experience:", portfolioData.experience.length);
+console.log("Projects:", portfolioData.projects.length);
+console.log("\nAll data is present!");

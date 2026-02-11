@@ -2,12 +2,15 @@ import { motion } from 'framer-motion';
 import { GraduationCap } from 'lucide-react';
 import { useContent } from '../hooks/useContent';
 import { parseEducation } from '../utils/parseContent';
+import { portfolioData } from '../data/content';
 
 const Education = () => {
     const { sections } = useContent();
 
-    const educationContent = sections?.Education || '';
-    const educationItems = educationContent ? parseEducation(educationContent) : [];
+    // Use API data if available, otherwise use fallback
+    const educationItems = sections?.Education 
+        ? parseEducation(sections.Education) 
+        : portfolioData.education;
 
     return (
         <section id="education" className="py-16 sm:py-20 md:py-24 bg-primary/30 backdrop-blur-lg text-text-primary relative">

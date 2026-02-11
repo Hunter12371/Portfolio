@@ -3,7 +3,7 @@ import axios from 'axios';
 // Determine the API URL based on environment
 const API_URL = import.meta.env.PROD 
   ? '' // Use relative URLs in production (same domain)
-  : 'http://localhost:5000';
+  : 'http://localhost:8000';
 
 const api = axios.create({
   baseURL: API_URL,
