@@ -4,20 +4,35 @@ import { useContent } from '../hooks/useContent';
 import { parseProjects } from '../utils/parseContent';
 
 const Projects = () => {
-    const { sections, loading } = useContent();
+    const { sections } = useContent();
 
-    if (loading) {
-        return (
-            <section id="projects" className="py-16 sm:py-20 md:py-24 bg-primary/30 backdrop-blur-lg text-text-primary">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <p className="text-gray-400">Loading...</p>
-                </div>
-            </section>
-        );
-    }
+    // Fallback data
+    const defaultProjects = [
+        {
+            title: "Ambulance Traffic Predictor",
+            tech: ["Python", "Pandas", "Scikit-learn"],
+            description: "Built traffic prediction system achieving 94% accuracy and reducing response time by 22%. Analyzed traffic patterns to optimize ambulance routing.",
+            github: "#",
+            live: "#"
+        },
+        {
+            title: "Automated MLOps Pipeline",
+            tech: ["Python", "Docker", "GitHub Actions"],
+            description: "Designed CI/CD pipeline improving deployment speed by 35%. Automated model training, testing, and deployment workflows.",
+            github: "#",
+            live: "#"
+        },
+        {
+            title: "AI Personal Assistant with Object Detection",
+            tech: ["Python", "YOLO", "OpenCV"],
+            description: "Developed real-time object detection assistant with 95% accuracy and reduced latency by 60ms. Integrated voice commands for hands-free operation.",
+            github: "#",
+            live: "#"
+        }
+    ];
 
     const projectsContent = sections?.Projects || '';
-    const projects = parseProjects(projectsContent);
+    const projects = projectsContent ? parseProjects(projectsContent) : defaultProjects;
 
     return (
         <section id="projects" className="py-16 sm:py-20 md:py-24 bg-primary/30 backdrop-blur-lg text-text-primary relative">

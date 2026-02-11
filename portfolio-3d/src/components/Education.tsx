@@ -4,20 +4,19 @@ import { useContent } from '../hooks/useContent';
 import { parseEducation } from '../utils/parseContent';
 
 const Education = () => {
-    const { sections, loading } = useContent();
+    const { sections } = useContent();
 
-    if (loading) {
-        return (
-            <section id="education" className="py-16 sm:py-20 md:py-24 bg-primary/30 backdrop-blur-lg text-text-primary">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <p className="text-gray-400">Loading...</p>
-                </div>
-            </section>
-        );
-    }
+    // Fallback data
+    const defaultEducation = [{
+        institution: "CHRIST University, Bangalore",
+        degree: "BTech in Artificial Intelligence and Machine Learning",
+        period: "June 2023 - May 2027",
+        cgpa: "3.34 / 4",
+        tags: ["#AI", "#MachineLearning", "#ComputerVision"]
+    }];
 
     const educationContent = sections?.Education || '';
-    const educationItems = parseEducation(educationContent);
+    const educationItems = educationContent ? parseEducation(educationContent) : defaultEducation;
 
     return (
         <section id="education" className="py-16 sm:py-20 md:py-24 bg-primary/30 backdrop-blur-lg text-text-primary relative">
@@ -66,7 +65,7 @@ const Education = () => {
                                 </div>
                             )}
 
-                            {edu.tags.length > 0 && (
+                            {edu.tags && edu.tags.length > 0 && (
                                 <div className="mt-6 flex flex-wrap gap-2">
                                     {edu.tags.map((tag, i) => (
                                         <span key={i} className="text-xs font-mono text-gray-500">{tag}</span>

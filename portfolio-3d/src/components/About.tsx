@@ -4,23 +4,20 @@ import { useContent } from '../hooks/useContent';
 const About = () => {
     const { sections, loading } = useContent();
 
-    if (loading) {
-        return (
-            <section id="about" className="py-16 sm:py-20 md:py-24 bg-primary/30 backdrop-blur-lg text-text-primary">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <p className="text-gray-400">Loading...</p>
-                </div>
-            </section>
-        );
-    }
+    // Fallback data
+    const defaultAbout = `I am an AI & ML Engineering Student and IEEE AESS Vice Chair with experience building Machine Learning and computer vision systems. My work focuses on developing scalable AI solutions, from real-time object detection assistants to traffic prediction models with high accuracy.
 
-    const aboutContent = sections?.About || '';
+I have a strong foundation in Python and MLOps. When I'm not deploying models, I'm dominating in competitive gaming lobbies. I bring the same strategic depth and reaction time from the arena to my engineering challenges.`;
+
+    const defaultSkills = ["Python", "C++", "C", "SQL", "TensorFlow", "PyTorch", "OpenCV", "Scikit-learn", "Data Science", "MLOps", "Docker", "Flutter", "Figma", "VSCode"];
+
+    const aboutContent = sections?.About || defaultAbout;
     const paragraphs = aboutContent.split('\n\n').filter(p => !p.startsWith('##'));
     
     // Extract skills
     const skillsMatch = aboutContent.match(/## Skills\n\n(.*?)(?=\n|$)/);
     const skillsText = skillsMatch ? skillsMatch[1].trim() : '';
-    const skills = skillsText ? skillsText.split(',').map(s => s.trim()) : [];
+    const skills = skillsText ? skillsText.split(',').map(s => s.trim()) : defaultSkills;
 
     return (
         <section id="about" className="py-16 sm:py-20 md:py-24 bg-primary/30 backdrop-blur-lg text-text-primary relative overflow-hidden">
