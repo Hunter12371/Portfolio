@@ -208,11 +208,12 @@ Creates optimized production build in `portfolio-3d/dist/` folder.
   - Axios (HTTP client)
 
 - **Backend**:
-  - Express.js
-  - Node.js
-  - Nodemailer (email)
-  - CORS
-  - dotenv
+  - FastAPI
+  - Python 3.8+
+  - Uvicorn (ASGI server)
+  - Pydantic (data validation)
+  - python-frontmatter (markdown parsing)
+  - python-dotenv
 
 ## Development
 

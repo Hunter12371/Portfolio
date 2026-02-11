@@ -2,13 +2,21 @@
 
 Follow these steps to get your portfolio up and running with the backend.
 
-## 1. Backend Setup
+## 1. Backend Setup (FastAPI)
 
-### Step 1: Install Backend Dependencies
+### Step 1: Install Python and Dependencies
+
+Ensure you have Python 3.8+ installed:
+
+```bash
+python --version
+```
+
+Install backend dependencies:
 
 ```bash
 cd backend
-npm install
+pip install -r requirements.txt
 ```
 
 ### Step 2: Create Environment File
@@ -30,14 +38,12 @@ cp .env.example .env
 Edit `backend/.env` with your Gmail credentials:
 
 ```
-PORT=5000
 EMAIL_USER=your-gmail@gmail.com
 EMAIL_PASSWORD=your-app-specific-password
 ```
 
 For example:
 ```
-PORT=5000
 EMAIL_USER=work.srivastav@gmail.com
 EMAIL_PASSWORD=jkhs kxyo pqwm zxcv
 ```
@@ -45,13 +51,22 @@ EMAIL_PASSWORD=jkhs kxyo pqwm zxcv
 ### Step 5: Start Backend
 
 ```bash
-npm run dev
+python main.py
+```
+
+Or with uvicorn:
+
+```bash
+uvicorn main:app --reload --port 5000
 ```
 
 You should see:
 ```
-Backend server running on http://localhost:5000
+INFO:     Uvicorn running on http://0.0.0.0:5000
+INFO:     Application startup complete.
 ```
+
+Visit http://localhost:5000/docs for interactive API documentation!
 
 ## 2. Frontend Setup
 
@@ -200,11 +215,11 @@ Before deploying to production:
 ## 9. Quick Commands Reference
 
 ```bash
-# Backend
+# Backend (FastAPI)
 cd backend
-npm install              # Install dependencies
-npm run dev             # Development mode with auto-reload
-npm start               # Production mode
+pip install -r requirements.txt  # Install dependencies
+python main.py                   # Development mode
+uvicorn main:app --reload        # Development with auto-reload
 
 # Frontend
 cd portfolio-3d
@@ -222,7 +237,7 @@ npm run lint            # Check code quality
 - **Resume**: `resume/Sidd.pdf`
 - **Frontend Config**: `portfolio-3d/vite.config.ts`
 - **API Service**: `portfolio-3d/src/services/contentAPI.ts`
-- **Backend Server**: `backend/src/server.js`
+- **Backend Server**: `backend/main.py`
 
 ## Need Help?
 

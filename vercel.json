@@ -10,18 +10,18 @@
       }
     },
     {
-      "src": "backend/api/index.js",
-      "use": "@vercel/node"
+      "src": "backend/main.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "backend/api/index.js"
+      "dest": "backend/main.py"
     },
     {
       "src": "/resume/(.*)",
-      "dest": "backend/api/index.js"
+      "dest": "backend/main.py"
     },
     {
       "handle": "filesystem"

@@ -1,236 +1,145 @@
-# Portfolio Backend
+# Portfolio Backend - FastAPI
 
-This is the backend server for the portfolio website. It serves content from a `data.md` file and provides APIs for managing portfolio content and handling contact form submissions.
+A FastAPI backend that serves dynamic content from `data.md` file.
 
 ## Features
 
-- **Dynamic Content Management**: All content is stored in `data.md` and can be easily updated
-- **Contact Form**: Sends emails through Gmail SMTP
-- **Resume Download**: Serves resume file for download
-- **API-driven**: RESTful API for all operations
+- 🚀 FastAPI for high performance
+- 📝 Dynamic content from `data.md`
+- 📧 Contact form with email sending
+- 📄 Resume download
+- 🔄 Real-time content updates
+- ✅ Type validation with Pydantic
 
 ## Setup
 
-### Prerequisites
+### 1. Install Python Dependencies
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Gmail account with app-specific password (for email functionality)
-
-### Installation
-
-1. Install dependencies:
 ```bash
-npm install
+pip install -r requirements.txt
 ```
 
-2. Create a `.env` file in the backend directory:
+### 2. Configure Environment Variables
+
+Create a `.env` file:
+
 ```bash
-cp .env.example .env
-```
-
-3. Update `.env` with your credentials:
-```
-PORT=5000
 EMAIL_USER=your-email@gmail.com
 EMAIL_PASSWORD=your-app-specific-password
 ```
 
-### Getting Gmail App Password
+### 3. Run Development Server
 
-1. Go to [Google Account Security Settings](https://myaccount.google.com/security)
-2. Enable 2-Factor Authentication
-3. Under "App passwords", generate a password for "Mail" and "Windows Computer"
-4. Use this password as `EMAIL_PASSWORD` in `.env`
-
-## Running the Backend
-
-### Development Mode (with auto-reload):
 ```bash
-npm run dev
+python main.py
 ```
 
-### Production Mode:
+Or with uvicorn:
+
 ```bash
-npm start
+uvicorn main:app --reload --port 5000
 ```
 
-The backend will run on `http://localhost:5000`
+Server runs at: `http://localhost:5000`
+
+## API Documentation
+
+FastAPI provides automatic interactive API docs:
+
+- **Swagger UI**: http://localhost:5000/docs
+- **ReDoc**: http://localhost:5000/redoc
 
 ## API Endpoints
 
-### Get Content
-```
-GET /api/content
-```
-Returns all content from `data.md` including configuration and body content.
+### Content Management
 
-### Get Specific Section
-```
-GET /api/content/:section
-```
-Returns content of a specific section (e.g., "About", "Projects", etc.)
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/content` | GET | Get all content from data.md |
+| `/api/content/{section}` | GET | Get specific section |
+| `/api/config` | PUT | Update configuration (email, titles) |
+| `/api/content/{section}` | PUT | Update section content |
 
-### Update Configuration
-```
-PUT /api/config
-```
-Update email, hero title, or subtitle.
+### Contact & Resume
 
-Example body:
-```json
-{
-  "contactEmail": "newemail@gmail.com",
-  "heroTitle": "Hello, I'm Siddharth",
-  "heroSubtitle": "Updated subtitle here"
-}
-```
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/send-email` | POST | Send contact form email |
+| `/api/download-resume` | GET | Download resume PDF |
+| `/api/health` | GET | Health check |
 
-### Update Section Content
-```
-PUT /api/content/:section
-```
-Update content of a specific section.
+## Content Management
 
-Example body:
-```json
-{
-  "newContent": "# New section content..."
-}
-```
-
-### Send Contact Email
-```
-POST /api/send-email
-```
-Send an email through the contact form.
-
-Example body:
-```json
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "subject": "Collaboration Inquiry",
-  "message": "I'd like to discuss a project..."
-}
-```
-
-### Download Resume
-```
-GET /api/download-resume
-```
-Downloads the resume PDF file.
-
-### Health Check
-```
-GET /api/health
-```
-Returns backend status.
-
-## Managing Content
-
-All content is stored in `data.md`. The file uses front-matter for configuration:
+All content is stored in `data.md` with YAML front-matter:
 
 ```markdown
 ---
-contactEmail: "work.srivastav@gmail.com"
-heroTitle: "Hi, I'm Siddharth"
-heroSubtitle: "AI Engineer | Level 99 Gamer | Tech Enthusast"
+contactEmail: "your-email@gmail.com"
+heroTitle: "Hi, I'm Your Name"
+heroSubtitle: "Your tagline"
 ---
 
 # About
-Content here...
+Your about content...
 
 # Education
-Content here...
+Your education details...
 
 # Experience
-Content here...
+Your work experience...
 
 # Projects
-Content here...
+Your projects...
 
 # Contact
-Content here...
+Your contact info...
 ```
 
-### Updating Content Manually
+### Update Content
 
-Edit `data.md` directly and the changes will be reflected in the API responses.
+Simply edit `data.md` and save. Changes are reflected immediately!
 
-### Updating via API
-
-Use the PUT endpoints to update content programmatically:
+### Update via API
 
 ```bash
 # Update config
 curl -X PUT http://localhost:5000/api/config \
   -H "Content-Type: application/json" \
-  -d '{"contactEmail": "newemail@gmail.com"}'
+  -d '{"contactEmail": "new@email.com"}'
 
 # Update section
 curl -X PUT http://localhost:5000/api/content/About \
   -H "Content-Type: application/json" \
-  -d '{"newContent": "New about section content..."}'
+  -d '{"newContent": "New about content..."}'
 ```
 
-## Frontend Integration
+## Email Setup
 
-The frontend is automatically configured to use the backend during development through Vite's proxy settings.
-
-For development (in the frontend directory):
-```bash
-npm run dev
-```
-
-The Vite dev server will proxy `/api` requests to `http://localhost:5000`.
+1. Enable 2FA on Gmail
+2. Generate app-specific password
+3. Add to `.env` file
 
 ## Deployment
 
-### Frontend Deployment
-When deploying, update the API URL in `src/services/contentAPI.ts`:
+### Vercel
 
-```typescript
-const API_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://your-api-domain.com'
-  : 'http://localhost:5000';
-```
+The project is configured for Vercel deployment:
 
-### Backend Deployment
-Deploy the backend to a service like Heroku, Railway, or your own VPS:
+1. Push to GitHub
+2. Import to Vercel
+3. Add environment variables
+4. Deploy!
 
-1. Set environment variables on the hosting service
-2. Run `npm start` as the start command
+See [VERCEL_DEPLOYMENT.md](../VERCEL_DEPLOYMENT.md) for details.
 
-## Troubleshooting
+## Technologies
 
-### Emails not sending
-- Check that 2FA is enabled on Gmail
-- Verify the app-specific password is correct
-- Check backend logs for error messages
+- **FastAPI**: Modern Python web framework
+- **Uvicorn**: ASGI server
+- **Pydantic**: Data validation
+- **python-frontmatter**: Parse markdown with YAML
+- **python-dotenv**: Environment variables
 
-### API calls failing
-- Ensure backend is running on port 5000
-- Check CORS is properly configured
-- Verify the API URL in the frontend service file
+---
 
-### Resume download not working
-- Ensure `resume/Sidd.pdf` exists
-- Check file permissions on the backend server
-- Verify the path is correct in the server code
-
-## File Structure
-
-```
-backend/
-├── src/
-│   └── server.js          # Main server file
-├── data.md                # All content stored here
-├── package.json           # Dependencies
-├── .env                   # Environment variables (not in repo)
-└── .env.example           # Example env file
-```
-
-## License
-
-This backend is part of the portfolio project and is for personal use only.
+**Made with FastAPI ⚡**
