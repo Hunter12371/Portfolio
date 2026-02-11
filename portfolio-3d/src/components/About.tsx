@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useContent } from '../hooks/useContent';
 
 const About = () => {
-    const { sections, loading } = useContent();
+    const { sections } = useContent();
 
     // Fallback data
     const defaultAbout = `I am an AI & ML Engineering Student and IEEE AESS Vice Chair with experience building Machine Learning and computer vision systems. My work focuses on developing scalable AI solutions, from real-time object detection assistants to traffic prediction models with high accuracy.
