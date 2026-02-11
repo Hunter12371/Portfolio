@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
 import { useContent } from '../hooks/useContent';
 import { useEffect, useState } from 'react';
 
