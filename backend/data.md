@@ -40,9 +40,7 @@ Python, C++, C, SQL, TensorFlow, PyTorch, OpenCV, Scikit-learn, Data Science, ML
 - Built ML pipelines using Scikit-learn; improved accuracy by 18%.
 - Automated preprocessing and evaluation, reducing workflow time by 40%.
 
-## IEEE AESS | Student Vice Chair
-**Period:** Jan 2026 – Present
-- Leading the IEEE AESS Student Chapter 
+
 
 # Projects
 
