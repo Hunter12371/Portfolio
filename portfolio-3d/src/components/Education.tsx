@@ -40,12 +40,7 @@ const Education: React.FC = () => {
 
                         <div className="flex items-center gap-4 mt-6 p-4 bg-primary/50 rounded-xl border border-white/5">
                             <Award className="text-yellow-400 flex-shrink-0" size={20} />
-                            <div>
-                                <span className="text-gray-400 text-xs sm:text-sm">CGPA</span>
-                                <p className="text-lg sm:text-xl font-bold text-white">3.34 / 4</p>
-                            </div>
-                        </div>
-
+                         </div>
                         <div className="mt-6 flex flex-wrap gap-2">
                             <span className="text-xs font-mono text-gray-500">#AI</span>
                             <span className="text-xs font-mono text-gray-500">#MachineLearning</span>
