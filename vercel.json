@@ -1,7 +1,13 @@
 {
   "version": 2,
-  "buildCommand": "cd portfolio-3d && npm install && npm run build",
   "builds": [
+    {
+      "src": "portfolio-3d/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    },
     {
       "src": "backend/main.py",
       "use": "@vercel/python"
@@ -16,6 +22,5 @@
       "src": "/(.*)",
       "dest": "portfolio-3d/dist/$1"
     }
-  ],
-  "outputDirectory": "portfolio-3d/dist"
+  ]
 }
