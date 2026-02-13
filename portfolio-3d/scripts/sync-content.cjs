@@ -56,20 +56,32 @@ if (currentSection) {
 }
 
 // Parse About section
-const aboutLines = sections.About ? sections.About.split('\n\n').filter(line => line.trim()) : [];
+const aboutContent = sections.About || '';
 const paragraphs = [];
 let skillsText = '';
 
-aboutLines.forEach(block => {
+// Split by double newlines to get blocks
+const blocks = aboutContent.split(/\r?\n\r?\n/).filter(b => b.trim());
+
+let skipNext = false;
+for (let i = 0; i < blocks.length; i++) {
+  if (skipNext) {
+    skipNext = false;
+    continue;
+  }
+  
+  const block = blocks[i].trim();
+  
   if (block.startsWith('## Skills')) {
-    const skillsMatch = block.match(/## Skills\s*\n\s*(.*)/);
-    if (skillsMatch) {
-      skillsText = skillsMatch[1].trim();
+    // Skills are in the next block
+    if (i + 1 < blocks.length) {
+      skillsText = blocks[i + 1].trim();
+      skipNext = true; // Skip the next block since we just used it
     }
   } else if (!block.startsWith('##')) {
-    paragraphs.push(block.trim());
+    paragraphs.push(block);
   }
-});
+}
 
 const skills = skillsText ? skillsText.split(',').map(s => s.trim()) : [];
 

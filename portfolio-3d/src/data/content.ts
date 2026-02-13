@@ -13,9 +13,25 @@ export const portfolioData = {
   
   about: {
     paragraphs: [
-      "I am an AI & ML Engineering Student and IEEE AESS Vice Chair with experience building Machine Learning and computer vision systems. My work focuses on developing scalable AI solutions, from real-time object detection assistants to traffic prediction models with high accuracy.\r\n\r\nI have a strong foundation in Python and MLOps. When I'm not deploying models, I'm dominating in competitive gaming lobbies. I bring the same strategic depth and reaction time from the arena to my engineering challenges.\r\n\r\n## Skills\r\n\r\nPython, C++, C, SQL, TensorFlow, PyTorch, OpenCV, Scikit-learn, Data Science, MLOps, Docker, Flutter, Figma, VSCode"
+      "I am an AI & ML Engineering Student and IEEE AESS Vice Chair with experience building Machine Learning and computer vision systems. My work focuses on developing scalable AI solutions, from real-time object detection assistants to traffic prediction models with high accuracy.",
+      "I have a strong foundation in Python and MLOps. When I'm not deploying models, I'm dominating in competitive gaming lobbies. I bring the same strategic depth and reaction time from the arena to my engineering challenges."
 ],
-    skills: []
+    skills: [
+      "Python",
+      "C++",
+      "C",
+      "SQL",
+      "TensorFlow",
+      "PyTorch",
+      "OpenCV",
+      "Scikit-learn",
+      "Data Science",
+      "MLOps",
+      "Docker",
+      "Flutter",
+      "Figma",
+      "VSCode"
+]
   },
   
   education: [
