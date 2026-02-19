@@ -51,19 +51,19 @@ Python, C++, C, SQL, TensorFlow, PyTorch, OpenCV, Scikit-learn, Data Science, ML
 ## Ambulance Traffic Predictor
 **Tech:** Python, Pandas, Scikit-learn
 **Description:** Built traffic prediction system achieving 94% accuracy and reducing response time by 22%. Analyzed traffic patterns to optimize ambulance routing.
-**GitHub:** #
+**GitHub:** [Ambulance-Traffic-Predictor](https://github.com/Hunter12371/_Ambulance_traffic_predictor)
 **Live:** #
 
 ## Automated MLOps Pipeline
 **Tech:** Python, Docker, GitHub Actions
 **Description:** Designed CI/CD pipeline improving deployment speed by 40%. Automated model training, testing, and deployment workflows.
-**GitHub:** #
+**GitHub:** [Agentic-MLOPs](https://github.com/Hunter12371/Agentic-MLOPs)
 **Live:** #
 
 ## AI Personal Assistant with Object Detection
 **Tech:** Python, YOLO, OpenCV
 **Description:** Developed real-time object detection assistant with 95% accuracy and reduced latency by 60ms. Integrated voice commands for hands-free operation.
-**GitHub:** #
+**GitHub:** [Personal-AI-along-with-Object-Detection](https://github.com/Hunter12371/Personal-AI-along-with-Object-Detection)
 **Live:** #
 
 # Contact
