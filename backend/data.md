@@ -19,9 +19,14 @@ Python, C++, C, SQL, TensorFlow, PyTorch, Scikit-learn, XGBoost, Random Forest, 
 # Education
 
 ## CHRIST University, Bangalore
-**Degree:** BTech in Artificial Intelligence and Machine Learning | CGPA: 3.34 / 4.0
+**Degree:** BTech in Artificial Intelligence and Machine Learning
 **Period:** June 2023 - May 2027
 **Proficient In:** #ArtificialIntelligence #MachineLearning #ComputerVision
+
+## Cambridge School, Greater Noida
+**Degree:** Class 6 - Class 12 | Specialization: Computer Science (Class 11 & 12)
+**Period:** 2016 - 2022
+**Proficient In:** #ComputerScience #Programming
 
 # Experience
 

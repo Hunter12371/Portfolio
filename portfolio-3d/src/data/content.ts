@@ -54,9 +54,15 @@ export const portfolioData = {
   education: [
     {
         "institution": "CHRIST University, Bangalore",
-        "degree": "BTech in Artificial Intelligence and Machine Learning | CGPA: 3.34 / 4.0",
+        "degree": "BTech in Artificial Intelligence and Machine Learning",
         "period": "June 2023 - May 2027",
         "proficientIn": "#ArtificialIntelligence #MachineLearning #ComputerVision"
+    },
+    {
+        "institution": "Cambridge School, Greater Noida",
+        "degree": "Class 6 - Class 12 | Specialization: Computer Science (Class 11 & 12)",
+        "period": "2016 - 2022",
+        "proficientIn": "#ComputerScience #Programming"
     }
 ],
   
