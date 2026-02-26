@@ -13,8 +13,8 @@ export const portfolioData = {
   
   about: {
     paragraphs: [
-      "I am an AI & ML Engineering Student and IEEE AESS Vice Chair with experience building Machine Learning and computer vision systems. My work focuses on developing scalable AI solutions, from real-time object detection assistants to traffic prediction models with high accuracy.",
-      "I have a strong foundation in Python and MLOps. When I'm not deploying models, I'm dominating in competitive gaming lobbies. I bring the same strategic depth and reaction time from the arena to my engineering challenges."
+      "Results-driven AI/ML Engineer with 3+ internships and 3 deployed production systems achieving up to 95% accuracy. Proven track record of cutting preprocessing time by 30-40%, reducing deployment cycles by 35%, and spearheading real-time computer vision and predictive analytics pipelines. IEEE AESS Vice Chair with hands-on leadership of 50+ person technical workshops.",
+      "Passionate about GenAI systems, autonomous agent pipelines, and scalable MLOps. When I'm not deploying models or optimizing ML pipelines, I'm dominating in competitive gaming lobbies. I bring the same strategic depth, quick decision-making, and reaction time from the arena to my engineering challenges."
 ],
     skills: [
       "Python",
@@ -23,21 +23,38 @@ export const portfolioData = {
       "SQL",
       "TensorFlow",
       "PyTorch",
-      "OpenCV",
       "Scikit-learn",
+      "XGBoost",
+      "Random Forest",
+      "SVM",
+      "KNN",
+      "Gradient Boosting",
+      "OpenCV",
+      "YOLO",
+      "NLP",
+      "LangChain",
+      "LlamaIndex",
+      "RAG Pipelines",
+      "Vector Databases",
+      "Pandas",
+      "NumPy",
+      "SHAP",
       "Data Science",
       "MLOps",
       "Docker",
-      "Flutter",
-      "Figma",
-      "VSCode"
+      "CI/CD",
+      "GitHub Actions",
+      "FastAPI",
+      "Git & GitHub",
+      "Jupyter Notebooks",
+      "VS Code"
 ]
   },
   
   education: [
     {
         "institution": "CHRIST University, Bangalore",
-        "degree": "BTech in Artificial Intelligence and Machine Learning",
+        "degree": "BTech in Artificial Intelligence and Machine Learning | CGPA: 3.34 / 4.0",
         "period": "June 2023 - May 2027",
         "proficientIn": "#ArtificialIntelligence #MachineLearning #ComputerVision"
     }
@@ -45,12 +62,13 @@ export const portfolioData = {
   
   experience: [
     {
-        "company": "Intel Unnati",
+        "company": "Intel Unnati Program",
         "role": "AI/ML Trainee",
         "period": "May 2025 – Jul 2025",
         "description": [
-            "Built ML models for network traffic analysis; improved prediction accuracy by 15%.",
-            "Reduced simulated network latency by 20% through optimization techniques."
+            "Engineered ML models for network traffic analysis, boosting multi-class prediction accuracy by 15% across 100K+ traffic records.",
+            "Slashed simulated network latency by 20% through algorithmic optimization and feature selection on high-dimensional datasets.",
+            "Conducted rigorous performance evaluation and cross-validation across 5+ model architectures."
         ]
     },
     {
@@ -58,38 +76,52 @@ export const portfolioData = {
         "role": "AI/ML Intern",
         "period": "Apr 2025 – Jun 2025",
         "description": [
-            "Improved model interpretability by 25% and reduced preprocessing time by 30%.",
-            "Deployed ML models for real-time prediction pipelines."
+            "Elevated model interpretability by 25% using SHAP-based feature importance analysis and advanced visualization techniques.",
+            "Automated end-to-end data preprocessing pipelines, cutting processing time by 30% and eliminating manual bottlenecks.",
+            "Deployed ML models into real-time prediction workflows, enabling sub-100ms inference on production data streams."
         ]
     },
     {
         "company": "Acmegrade",
         "role": "Machine Learning Intern",
-        "period": "Oct 2023 – Dec 2023",
+        "period": "Jun 2025 – Aug 2025",
         "description": [
-            "Built ML pipelines using Scikit-learn; improved accuracy by 18%.",
-            "Automated preprocessing and evaluation, reducing workflow time by 40%."
+            "Architected ML pipelines using Scikit-learn, improving model accuracy by 18% through hyperparameter tuning and ensemble methods.",
+            "Automated preprocessing and model evaluation loops, reducing end-to-end workflow time by 40% and accelerating iteration cycles.",
+            "Implemented structured performance tracking and error analysis dashboards, enhancing model reliability across 3 production use cases."
         ]
     },
     {
         "company": "IEEE AESS",
-        "role": "Student Vice Chair",
-        "period": "Jan 2026 - Present",
+        "role": "Vice Chair",
+        "period": "2023 – Present",
         "description": [
-            "Leading IEEE AESS Society"
+            "Spearheaded chapter planning, member engagement initiatives, and 10+ interdisciplinary technical workshops.",
+            "Coordinated student-industry engagement sessions, growing active chapter membership by 30%."
         ]
     }
 ],
   
   projects: [
     {
-        "title": "Ambulance Traffic Predictor",
+        "title": "AI Personal Assistant with Object Detection",
+        "tech": [
+            "Python",
+            "YOLO",
+            "OpenCV"
+        ],
+        "description": "Developed a real-time object detection assistant achieving 95% detection accuracy on live camera feeds. Optimized inference pipeline, reducing latency by ~60ms and improving frame processing throughput by 3x. Integrated voice-triggered interaction and real-time scene awareness for fully autonomous assistive automation.",
+        "github": "https://github.com/Hunter12371/Personal-AI-along-with-Object-Detection",
+        "live": ""
+    },
+    {
+        "title": "Ambulance Traffic Prediction System",
         "tech": [
             "Python",
             "Pandas",
             "Scikit-learn"
         ],
-        "description": "Built traffic prediction system achieving 94% accuracy and reducing response time by 22%. Analyzed traffic patterns to optimize ambulance routing.",
+        "description": "Built an ML-based traffic prediction model achieving 94% accuracy on historical traffic datasets spanning 10,000+ data points. Reduced emergency vehicle response routing time by 22% via predictive path optimization under peak congestion. Performed advanced feature engineering and model tuning, improving F1-score by 12% over the baseline model.",
         "github": "https://github.com/Hunter12371/_Ambulance_traffic_predictor",
         "live": ""
     },
@@ -100,19 +132,8 @@ export const portfolioData = {
             "Docker",
             "GitHub Actions"
         ],
-        "description": "Designed CI/CD pipeline improving deployment speed by 40%. Automated model training, testing, and deployment workflows.",
+        "description": "Designed a full CI/CD pipeline automating training, testing, and deployment, improving deployment speed by 35%. Ensured 100% reproducible ML workflows with automated model validation, version control, and artifact management. Reduced manual intervention in the release cycle from 5 hours to under 30 minutes per model iteration.",
         "github": "https://github.com/Hunter12371/Agentic-MLOPs",
-        "live": ""
-    },
-    {
-        "title": "AI Personal Assistant with Object Detection",
-        "tech": [
-            "Python",
-            "YOLO",
-            "OpenCV"
-        ],
-        "description": "Developed real-time object detection assistant with 95% accuracy and reduced latency by 60ms. Integrated voice commands for hands-free operation.",
-        "github": "https://github.com/Hunter12371/Personal-AI-along-with-Object-Detection",
         "live": ""
     }
 ]
