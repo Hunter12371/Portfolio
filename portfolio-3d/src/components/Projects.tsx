@@ -42,12 +42,28 @@ const Projects = () => {
                                         {project.title}
                                     </h3>
                                     <div className="flex gap-3">
-                                        <a href={project.github} className="text-gray-400 hover:text-white transition-colors">
-                                            <Github size={20} />
-                                        </a>
-                                        <a href={project.live} className="text-gray-400 hover:text-white transition-colors">
-                                            <ExternalLink size={20} />
-                                        </a>
+                                        {project.github && (
+                                            <a 
+                                                href={project.github} 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                                className="text-gray-400 hover:text-white transition-colors"
+                                                onClick={(e) => e.stopPropagation()}
+                                            >
+                                                <Github size={20} />
+                                            </a>
+                                        )}
+                                        {project.live && (
+                                            <a 
+                                                href={project.live} 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                                className="text-gray-400 hover:text-white transition-colors"
+                                                onClick={(e) => e.stopPropagation()}
+                                            >
+                                                <ExternalLink size={20} />
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
 

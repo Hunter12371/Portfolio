@@ -90,8 +90,8 @@ export const portfolioData = {
             "Scikit-learn"
         ],
         "description": "Built traffic prediction system achieving 94% accuracy and reducing response time by 22%. Analyzed traffic patterns to optimize ambulance routing.",
-        "github": "#",
-        "live": "#"
+        "github": "https://github.com/Hunter12371/_Ambulance_traffic_predictor",
+        "live": ""
     },
     {
         "title": "Automated MLOps Pipeline",
@@ -101,8 +101,8 @@ export const portfolioData = {
             "GitHub Actions"
         ],
         "description": "Designed CI/CD pipeline improving deployment speed by 40%. Automated model training, testing, and deployment workflows.",
-        "github": "#",
-        "live": "#"
+        "github": "https://github.com/Hunter12371/Agentic-MLOPs",
+        "live": ""
     },
     {
         "title": "AI Personal Assistant with Object Detection",
@@ -112,8 +112,8 @@ export const portfolioData = {
             "OpenCV"
         ],
         "description": "Developed real-time object detection assistant with 95% accuracy and reduced latency by 60ms. Integrated voice commands for hands-free operation.",
-        "github": "#",
-        "live": "#"
+        "github": "https://github.com/Hunter12371/Personal-AI-along-with-Object-Detection",
+        "live": ""
     }
 ]
 };

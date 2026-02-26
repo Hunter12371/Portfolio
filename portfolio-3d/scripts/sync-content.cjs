@@ -132,15 +132,25 @@ if (sections.Projects) {
   projLines.forEach(line => {
     if (line.startsWith('## ')) {
       if (currentProj) projectItems.push(currentProj);
-      currentProj = { title: line.replace('## ', '').trim(), tech: [], description: '', github: '#', live: '#' };
+      currentProj = { title: line.replace('## ', '').trim(), tech: [], description: '', github: '', live: '' };
     } else if (currentProj) {
       if (line.startsWith('**Tech:**')) {
         const techStr = line.replace('**Tech:**', '').trim();
         currentProj.tech = techStr.split(',').map(t => t.trim());
       }
       if (line.startsWith('**Description:**')) currentProj.description = line.replace('**Description:**', '').trim();
-      if (line.startsWith('**GitHub:**')) currentProj.github = line.replace('**GitHub:**', '').trim();
-      if (line.startsWith('**Live:**')) currentProj.live = line.replace('**Live:**', '').trim();
+      if (line.startsWith('**GitHub:**')) {
+        const githubText = line.replace('**GitHub:**', '').trim();
+        // Extract URL from markdown link [text](url) or just use the text
+        const markdownMatch = githubText.match(/\[.*?\]\((.*?)\)/);
+        currentProj.github = markdownMatch ? markdownMatch[1] : (githubText === '#' ? '' : githubText);
+      }
+      if (line.startsWith('**Live:**')) {
+        const liveText = line.replace('**Live:**', '').trim();
+        // Extract URL from markdown link [text](url) or just use the text
+        const markdownMatch = liveText.match(/\[.*?\]\((.*?)\)/);
+        currentProj.live = markdownMatch ? markdownMatch[1] : (liveText === '#' ? '' : liveText);
+      }
     }
   });
   if (currentProj) projectItems.push(currentProj);
