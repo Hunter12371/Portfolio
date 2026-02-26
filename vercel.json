@@ -7,20 +7,9 @@
       "config": {
         "distDir": "dist"
       }
-    },
-    {
-      "src": "backend/main.py",
-      "use": "@vercel/python",
-      "config": {
-        "includeFiles": ["backend/data.md"]
-      }
     }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "backend/main.py"
-    },
     {
       "src": "/(.*)",
       "dest": "portfolio-3d/dist/$1"

@@ -70,6 +70,14 @@ export const portfolioData = {
             "Built ML pipelines using Scikit-learn; improved accuracy by 18%.",
             "Automated preprocessing and evaluation, reducing workflow time by 40%."
         ]
+    },
+    {
+        "company": "IEEE AESS",
+        "role": "Student Vice Chair",
+        "period": "Jan 2026 - Present",
+        "description": [
+            "Leading IEEE AESS Society"
+        ]
     }
 ],
   

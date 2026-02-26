@@ -1,10 +1,9 @@
-import { useRef, Suspense, useState } from 'react';
+import { useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Icosahedron, MeshDistortMaterial, Sparkles } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
 import * as THREE from 'three';
-import { contentAPI } from '../services/contentAPI';
 import { useContent } from '../hooks/useContent';
 import { portfolioData } from '../data/content';
 
@@ -61,7 +60,6 @@ const HeroCanvas = () => {
 };
 
 const Hero = () => {
-    const [downloadingResume, setDownloadingResume] = useState(false);
     const { config } = useContent();
 
     const heroTitle = config?.heroTitle || portfolioData.config.heroTitle;
@@ -72,23 +70,15 @@ const Hero = () => {
     const name = nameMatch ? nameMatch[1] : "Siddharth";
 
     const handleDownloadResume = async () => {
-        try {
-            setDownloadingResume(true);
-            const blob = await contentAPI.downloadResume();
-            const url = window.URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'Siddharth_Resume.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            window.URL.revokeObjectURL(url);
-        } catch (error) {
-            console.error('Error downloading resume:', error);
-            alert('Failed to download resume. Please try again.');
-        } finally {
-            setDownloadingResume(false);
-        }
+        // Direct link to resume file
+        const resumeUrl = '/resume/Sidd.pdf';
+        const link = document.createElement('a');
+        link.href = resumeUrl;
+        link.download = 'Siddharth_Resume.pdf';
+        link.target = '_blank';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     };
 
     return (
@@ -138,11 +128,10 @@ const Hero = () => {
                     </a>
                     <button
                         onClick={handleDownloadResume}
-                        disabled={downloadingResume}
-                        className="px-4 sm:px-8 py-2 sm:py-3 text-sm sm:text-base border border-accent text-accent font-bold rounded-full hover:bg-accent/10 transition-all hover:shadow-[0_0_20px_rgba(56,189,248,0.3)] flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="px-4 sm:px-8 py-2 sm:py-3 text-sm sm:text-base border border-accent text-accent font-bold rounded-full hover:bg-accent/10 transition-all hover:shadow-[0_0_20px_rgba(56,189,248,0.3)] flex items-center gap-2"
                     >
                         <Download size={18} />
-                        {downloadingResume ? 'Downloading...' : 'Resume'}
+                        Resume
                     </button>
                 </motion.div>
             </div>

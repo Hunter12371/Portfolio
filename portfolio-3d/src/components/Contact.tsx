@@ -3,7 +3,6 @@ import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import { useState } from 'react';
 import { useContent } from '../hooks/useContent';
 import { portfolioData } from '../data/content';
-import { contentAPI } from '../services/contentAPI';
 
 const Contact = () => {
     const { config } = useContent();
@@ -27,21 +26,20 @@ const Contact = () => {
         setSending(true);
         setStatus({ type: null, message: '' });
 
-        try {
-            await contentAPI.sendEmail(formData);
-            setStatus({
-                type: 'success',
-                message: 'Message sent successfully! I\'ll get back to you soon.'
-            });
-            setFormData({ name: '', email: '', message: '' });
-        } catch (error) {
-            setStatus({
-                type: 'error',
-                message: 'Failed to send message. Please email me directly at ' + contactEmail
-            });
-        } finally {
-            setSending(false);
-        }
+        // Since backend API isn't working on Vercel, use mailto as fallback
+        const subject = encodeURIComponent(`Portfolio Contact: Message from ${formData.name}`);
+        const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+        const mailtoLink = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+        
+        // Open default email client
+        window.location.href = mailtoLink;
+        
+        setStatus({
+            type: 'success',
+            message: 'Opening your email client... If it doesn\'t open, please email me directly at ' + contactEmail
+        });
+        setFormData({ name: '', email: '', message: '' });
+        setSending(false);
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
